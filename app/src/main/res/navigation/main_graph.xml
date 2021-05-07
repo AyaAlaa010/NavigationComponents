@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_graph"
+    app:startDestination="@id/loginFragment">
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.navigationcomponents.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_registerFragment"
+            app:destination="@id/registerFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_homFragment"
+            app:destination="@id/homFragment"
+            app:popUpTo="@id/main_graph" />
+        <action
+            android:id="@+id/action_loginFragment_to_registerFragment2"
+            app:destination="@id/registerFragment"
+            app:popUpTo="@id/main_graph" />
+    </fragment>
+    <fragment
+        android:id="@+id/homFragment"
+        android:name="com.example.navigationcomponents.HomFragment"
+        android:label="fragment_hom"
+        tools:layout="@layout/fragment_hom" >
+        <argument
+            android:name="email"
+            app:argType="string"
+            android:defaultValue="none" />
+        <argument
+            android:name="user"
+            app:argType="com.example.navigationcomponents.User" />
+    </fragment>
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="com.example.navigationcomponents.RegisterFragment"
+        android:label="fragment_register"
+        tools:layout="@layout/fragment_register" />
+</navigation>
